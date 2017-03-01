@@ -1,0 +1,6 @@
+name = Sample Module
+description = sample module for workshop series (dependency: Devel module)
+version = 7.x-1.0-beta
+core = 7.x
+package = Studiozut Project
+dependencies[] = devel:devel

@@ -1,0 +1,51 @@
+<?php
+
+/*
+ * Set some values using classes
+ */
+
+class TestClass
+{
+  public $prop1 = "class property";
+ 
+  public function setProperty($newval)
+  {
+      $this->prop1 = $newval;
+  }
+ 
+  public function getProperty()
+  {
+      return $this->prop1;
+  }
+}
+ 
+// Create two objects
+$obj = new TestClass;
+$obj2 = new TestClass;
+ 
+// Get the value of $prop1 from both objects
+  //echo $obj->getProperty();
+  //echo $obj2->getProperty();
+ 
+// Set new values for both objects
+$obj->setProperty("Put the Page Title Here");
+$obj2->setProperty("Put the Page Title Here (from second instance)");
+ 
+// Output both objects' $prop1 value
+  //echo $obj->getProperty();
+  //echo $obj2->getProperty();
+
+global $titleVar;
+$titleVar = $obj2->getProperty();
+       
+/*
+ * Implementation of hook_form_alter()
+ */
+function sample_module_form_alter(&$form, &$form_state, $form_id){
+  global $titleVar;
+  if($form_id == "page_node_form"){
+    $form['title']['#title'] = $titleVar;
+    //$form['title']['#title'] = t('We Replaced the Form Title');
+    dsm($form);
+  }
+}
