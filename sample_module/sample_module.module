@@ -24,6 +24,7 @@ $obj = new TestClass;
 $obj2 = new TestClass;
  
 // Get the value of $prop1 from both objects
+// (to illustrate how this would output as a file)
   //echo $obj->getProperty();
   //echo $obj2->getProperty();
  
@@ -32,6 +33,7 @@ $obj->setProperty("Put the Page Title Here");
 $obj2->setProperty("Put the Page Title Here (from second instance)");
  
 // Output both objects' $prop1 value
+// (to illustrate how this would output as a file)
   //echo $obj->getProperty();
   //echo $obj2->getProperty();
 
